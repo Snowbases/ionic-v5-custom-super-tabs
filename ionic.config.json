@@ -1,0 +1,7 @@
+{
+  "name": "ionic-v6-custom-super-tabs",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
