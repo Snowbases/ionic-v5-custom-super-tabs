@@ -1,27 +1,81 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+:host {
+  --background-color: #f66972;
+  background-color: var(--background-color);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-header {
+  &::after {
+    content: "";
+    background-image: none !important;
+  }
+
+  ion-toolbar {
+    --background: var(--background-color);
+    --color: #ffffff;
+
+    ion-buttons {
+      ion-back-button {
+      }
+    }
+
+    ion-title {
+    }
+  }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+// https://zyra.github.io/ionic-super-tabs/components/super-tab/
 
-  color: #8c8c8c;
+super-tabs {
+  --st-scrollable-toolbar-padding-left: 35%;
 
-  margin: 0;
-}
+  super-tabs-toolbar {
+    --super-tabs-toolbar-background: var(--background-color);
+    --st-indicator-color: transparent;
+    padding: 1em 0;
 
-#container a {
-  text-decoration: none;
+    super-tab-button {
+      --st-label-height: 6em;
+      --st-label-font-weight: bold;
+      --st-label-text-transform: uppercase;
+      margin-right: 0.3em;
+      padding: 0;
+      transition: all 200ms;
+
+      &.active {
+        background-color: rgb(255 255 255 / 0.2);
+        border-radius: 0.5em;
+      }
+
+      ion-label {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      ion-button.button {
+        --padding-start: 1em;
+        --padding-end: 1em;
+        --border-radius: 0.5em;
+        height: 3.5em;
+        width: 100%;
+        margin: 0em;
+        transition: all 300ms;
+
+        ion-label {
+          font-size: 1em;
+          font-family: system-ui;
+          text-transform: capitalize;
+          font-style: normal;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  super-tabs-container {
+    background: #ffffff;
+
+    super-tab {
+    }
+  }
 }

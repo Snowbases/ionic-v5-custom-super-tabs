@@ -1,20 +1,33 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Super Tabs Angular</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<!-- super tabs documentation -->
+<!-- https://zyra.github.io/ionic-super-tabs/components/super-tab/ -->
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+<super-tabs [activeTabIndex]="activeTab">
+
+  <!-- this is tab -->
+  <super-tabs-toolbar slot="top" [scrollablePadding]="true" [showIndicator]="true" scrollable>
+    <super-tab-button #superTabButton *ngFor="let tab of tabs;">
+      <ion-button [disabled]="false" class="button" mode="md" expand="block" fill="clear" color="light">
+        <ion-label color="light">{{ tab?.label }}</ion-label>
+      </ion-button>
+    </super-tab-button>
+  </super-tabs-toolbar>
+
+  <!-- this is container  -->
+  <super-tabs-container>
+    <super-tab *ngFor="let itemDetail of itemDetails; let i = index;">
+      <ion-content class="ion-padding">
+        <ion-label color="primary">{{ itemDetail | json }}</ion-label>
+      </ion-content>
+    </super-tab>
+  </super-tabs-container>
+
+</super-tabs>
